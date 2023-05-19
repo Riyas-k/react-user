@@ -9,7 +9,7 @@ const  userData = JSON.parse(localStorage.getItem('userDetails'))
 const handleLogout =()=>{
   localStorage.removeItem('userDetails')
 }
-  return (
+  return ( 
     <div className="headerParentDiv">
       <div className="headerChildDiv">
         <div className="brandName"></div>

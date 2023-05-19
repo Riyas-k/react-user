@@ -1,6 +1,9 @@
 import React from 'react'
+import { useRouteError } from 'react-router-dom'
 
 function Error() {
+    const err= useRouteError()
+    console.log(err);
   return (
    <>
     <main className="main page-404">
@@ -14,6 +17,7 @@ function Error() {
                 <p className="font-lg text-grey-700 mb-30">
                     The link you clicked may be broken or the page may have been removed.<br/> visit the <a href="index.html"> <span> Homepage</span></a> or <a href="page-contact.html"><span>Contact us</span></a> about the problem
                 </p>
+                <h1>{err.status + " : " + err.statusText}</h1>
                 <form className="contact-form-style text-center" id="contact-form" action="#" method="post">
                     <div className="row">
                         <div className="col-lg-6 m-auto">

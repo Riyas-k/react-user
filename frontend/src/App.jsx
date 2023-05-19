@@ -36,13 +36,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/sign-up" element={<SignUp />}></Route>
-        <Route path="/" element={<MainHome />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
-        <Route path="/admin/login" element={<AdminLogin />}></Route>
-        <Route path="/admin" element={<AdminHome />}></Route>
-        <Route path="*" element={<Error />}/>
+        <Route path="/login" element={<Login />} errorElement={<Error />}></Route>
+        <Route path="/sign-up" element={<SignUp errorElement={<Error />}/>}></Route>
+        <Route path="/" element={<MainHome />} errorElement={<Error />}></Route>
+        <Route path="/profile" element={<Profile />} errorElement={<Error />}></Route>
+        <Route path="/admin/login" element={<AdminLogin />} errorElement={<Error />}></Route>
+        <Route path="/admin" element={<AdminHome />} errorElement={<Error />}></Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

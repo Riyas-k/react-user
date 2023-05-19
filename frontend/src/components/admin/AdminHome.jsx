@@ -50,6 +50,7 @@ function AdminHome() {
   // };
   const handleLogout = () => {
     localStorage.removeItem("admin");
+
   };
   return (
     <>
