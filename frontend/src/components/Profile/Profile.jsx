@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import Headers from "../Header";
 import Axios from "axios";
 import axios from "../../axios";
+import { Button } from "@mui/material";
 
 function Profile() {
   const [data, setData] = useState({});
@@ -126,9 +127,9 @@ function Profile() {
                           }}
                         />
                       </div>
-                      <button onClick={handleSubmit} type="submit">
+                      <Button variant="contained" color="secondary" onClick={handleSubmit} type="submit">
                         Add Image
-                      </button>
+                      </Button>
                       {/* </form> */}
                     </div>
                   </div>

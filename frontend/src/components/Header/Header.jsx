@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { Button } from "@mui/material";
 import axios from "../../axios";
 
 import "./Header.css";
@@ -22,22 +23,22 @@ const handleLogout =()=>{
           <span>
           {
             userData ?
-            <Link to={"/login"} onclick={handleLogout}>Logout</Link> :
-            <Link to={"/login"}>LogIn</Link> 
+            <Link to={"/login"} onclick={handleLogout}><Button variant="contained" color="error"> Logout</Button></Link> :
+            <Link to={"/login"}><Button variant="contained" color="primary">LogIn</Button> </Link> 
           }
           </span>
 
           <hr />
         </div>
         <span>
-          <Link to={"/profile"}>Profile</Link>
+          <Link to={"/profile"}><Button variant="contained" color="primary">Profile</Button></Link>
         </span>
 
         <div className="">
         <span>
         {
             userData ?
-            <Link to={"/profile"}>{userData.name}</Link> :null
+            <Link to={"/profile"}><Button variant="contained" color="primary">{userData.name}</Button></Link> :null
         
           }
         

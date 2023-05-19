@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "../../axios";
+import { Alert } from "@mui/material";
 // import {Formik,Form,Field,ErrorMessage} from 'formik'
 
 function Login() {
@@ -34,10 +35,13 @@ function Login() {
   return (
     <div>
       <div className="loginParentDiv">
+      {err && (
+        <Alert severity="error">This is an error alert Invalid Credentials— check it out!</Alert>
+          )}
         <h5>Login</h5>
         <form>
           <label htmlFor="fname">Email</label>
-          {err && <h5 style={{ color: "red" }}>{err}</h5>}
+      
           <br />
           <input
             className="input"
@@ -66,7 +70,7 @@ function Login() {
           <br />
           <button onClick={handleSubmit}>Login</button>
         </form>
-        <Link to={"/sign-up"}>Signup</Link>
+        <Link to={"/sign-up"} className="btn btn-success mt-2" style={{textDecoration:'none'}}>Signup</Link>
       </div>
     </div>
   );

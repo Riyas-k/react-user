@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../axios";
+import { Alert,Button } from "@mui/material";
 
 function AdminHome() {
   const [data, setData] = useState([]);
@@ -54,16 +55,17 @@ function AdminHome() {
   };
   return (
     <>
+    <Alert severity="success">Welcome Admin —!</Alert>
       <button
-        className="btn btn-success m-5 text-decoration-none"
+        className="btn m-5 text-decoration-none"
         onClick={handleLogout}
       >
-        <Link to={"/admin/login"}>Logout</Link>
+      <Link to={"/admin/login"}> <Button variant="contained" color="error"> Logout </Button></Link>
       </button>
 
       <div className="container" style={{ marginTop: "60px" }}>
         <input type="text" value={inputData} onChange={handleInput} />
-        <button
+        <Button variant="contained" color="success"
           style={{ marginLeft: "10px" }}
           onClick={() => {
             const searchres = searchData(inputData, data);
@@ -72,7 +74,7 @@ function AdminHome() {
           }}
         >
           Search
-        </button>
+        </Button>
         <h2>Users List</h2>
         <table className="table">
           <thead className="thead-dark">
@@ -101,7 +103,7 @@ function AdminHome() {
                  
                   } */}
                     <button
-                      className="btn btn-success bg-danger"
+                      className="btn bg-danger mt-2"
                       onClick={() => deleteUser(dat._id)}
                     >
                       Delete

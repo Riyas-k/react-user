@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "../../axios";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 function AdminLogin() {
   const [formData, setFormData] = useState({});
@@ -19,6 +20,7 @@ function AdminLogin() {
       console.log(response, "helooo");
       if (response.data.status) {
         localStorage.setItem("admin", JSON.stringify(response.data.status));
+        
         navigate("/admin");
       } else {
         setErr(response.data.err);
@@ -27,10 +29,14 @@ function AdminLogin() {
   };
   return (
     <div>
+     
       <div className="loginParentDiv">
+      {err && (
+        <Alert severity="error">This is an error alert Invalid Credentials— check it out!</Alert>
+          )}
         <h5>Admin Login</h5>
         <form>
-          {err && <h5 style={{ color: "red" }}>{err}</h5>}
+        
           <label htmlFor="fname">Email</label>
           <br />
           <input
